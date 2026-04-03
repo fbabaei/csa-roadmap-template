@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css" />
+  <script>
+    // Load gap data if the user has run: python scripts/analyze_gaps.py --export
+    // If the file doesn't exist the variable stays undefined and the portal shows the empty state.
+    (function () {
+      const s = document.createElement('script');
+      s.src = 'gap_report.js';
+      s.onerror = function () {}; // silently ignore if not generated yet
+      document.head.appendChild(s);
+    })();
+  </script>
 </head>
 <body>
   <div class="page-shell">
@@ -53,6 +63,7 @@
       <a href="#projects">Project Slots</a>
       <a href="#documents">Documents</a>
       <a href="#resources">Resource Matrix</a>
+      <a href="#gaps">Gap Analysis</a>
     </nav>
 
     <main>
@@ -341,6 +352,42 @@
           </table>
         </div>
       </section>
+      <section class="section panel" id="gaps">
+        <div class="section-heading">
+          <h2>Skill Gap Analysis</h2>
+          <a class="text-link" href="docs/SKILL_ASSESSMENT_TEMPLATE.md">Open assessment template</a>
+        </div>
+        <div class="gap-profile-switch" aria-label="Gap analysis profiles">
+          <label for="gap-profile-select">Profile data</label>
+          <select id="gap-profile-select">
+            <option value="current" selected>Current (gap_report.js)</option>
+            <option value="junior">Junior CSA</option>
+            <option value="mid">Mid-Level Architect</option>
+            <option value="team">Team Baseline</option>
+          </select>
+          <p id="gap-profile-status" class="gap-profile-status">Loaded: Current (gap_report.js)</p>
+        </div>
+        <div id="gap-empty-state">
+          <p class="gap-empty-msg">No gap report loaded yet.</p>
+          <ol class="gap-steps">
+            <li>Open <code>docs/SKILL_ASSESSMENT_TEMPLATE.md</code> and fill in your <strong>Current</strong> and <strong>Target</strong> levels (1–5).</li>
+            <li>Run: <code>python scripts/analyze_gaps.py --export</code></li>
+            <li>Reload this page — the Gap Analysis section will populate automatically.</li>
+          </ol>
+        </div>
+        <div id="gap-content" style="display:none">
+          <div class="gap-summary-bar" id="gap-summary"></div>
+          <p class="gap-generated-at" id="gap-generated-at"></p>
+          <div class="gap-group" id="gap-priorities">
+            <h3 class="gap-group-title">Prioritized Gaps</h3>
+            <div class="gap-card-grid" id="gap-cards"></div>
+          </div>
+          <div class="gap-group" id="gap-at-target-wrap">
+            <h3 class="gap-group-title">At or Above Target</h3>
+            <div class="gap-at-target-list" id="gap-at-target"></div>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -370,6 +417,20 @@
     const detailButtons = Array.from(document.querySelectorAll('.inline-action'));
     const detailPanels = Array.from(document.querySelectorAll('.detail-panel'));
     const slotSearch = document.getElementById('slot-search');
+    const gapProfileSelect = document.getElementById('gap-profile-select');
+    const gapProfileStatus = document.getElementById('gap-profile-status');
+    const GAP_PROFILE_FILES = {
+      current: 'gap_report.js',
+      junior: 'gap_report_junior_csa.js',
+      mid: 'gap_report_mid_level_architect.js',
+      team: 'gap_report_team_baseline.js'
+    };
+    const GAP_PROFILE_LABELS = {
+      current: 'Current (gap_report.js)',
+      junior: 'Junior CSA',
+      mid: 'Mid-Level Architect',
+      team: 'Team Baseline'
+    };
 
     function activateDetail(targetId) {
       detailPanels.forEach((panel) => {
@@ -408,6 +469,139 @@
 
     slotSearch.addEventListener('input', applySlotFilter);
     applySlotFilter();
+
+    function setGapProfileStatus(message, isError = false) {
+      if (!gapProfileStatus) return;
+      gapProfileStatus.textContent = message;
+      gapProfileStatus.classList.toggle('is-error', isError);
+    }
+
+    function loadGapProfile(profileKey) {
+      const src = GAP_PROFILE_FILES[profileKey];
+      const label = GAP_PROFILE_LABELS[profileKey] || profileKey;
+      if (!src) return;
+
+      setGapProfileStatus(`Loading: ${label}...`);
+      delete window.CSA_GAP_DATA;
+
+      const previous = document.getElementById('gap-data-script');
+      if (previous) previous.remove();
+
+      const script = document.createElement('script');
+      script.id = 'gap-data-script';
+      script.src = `${src}?v=${Date.now()}`;
+      script.onload = function () {
+        renderGapAnalysis();
+        setGapProfileStatus(`Loaded: ${label}`);
+      };
+      script.onerror = function () {
+        const emptyState = document.getElementById('gap-empty-state');
+        const content = document.getElementById('gap-content');
+        emptyState.style.display = 'block';
+        content.style.display = 'none';
+        setGapProfileStatus(`Unable to load: ${src}`, true);
+      };
+      document.head.appendChild(script);
+    }
+
+    if (gapProfileSelect) {
+      gapProfileSelect.addEventListener('change', (event) => {
+        loadGapProfile(event.target.value);
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // Gap Analysis renderer — populates #gaps section from window.CSA_GAP_DATA
+    // -----------------------------------------------------------------------
+    function renderGapAnalysis() {
+      const data = window.CSA_GAP_DATA;
+      const emptyState = document.getElementById('gap-empty-state');
+      const content = document.getElementById('gap-content');
+      if (!data) {
+        emptyState.style.display = 'block';
+        content.style.display = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      content.style.display = 'block';
+
+      // Summary bar
+      const summary = document.getElementById('gap-summary');
+      summary.innerHTML = `
+        <div class="gap-stat"><strong>${data.summary.assessed}</strong><span>Domains assessed</span></div>
+        <div class="gap-stat"><strong>${data.summary.gaps}</strong><span>Gaps found</span></div>
+        <div class="gap-stat"><strong>${data.summary.atTarget}</strong><span>At target level</span></div>
+      `;
+
+      document.getElementById('gap-generated-at').textContent =
+        `Report generated: ${data.generatedAt.replace('T', ' ')}`;
+
+      // Prioritized gap cards
+      const gaps = data.domains
+        .filter(d => d.gap > 0)
+        .sort((a, b) => b.gap - a.gap || b.current - a.current);
+
+      const PHASE_LABELS = {1:'Architecture foundations',2:'AI application architecture',
+        3:'Operations & tooling',4:'Delivery & communication',5:'Advanced engineering'};
+      const PRIORITY_CLASS = {3:'high', 2:'medium', 1:'low'};
+
+      const cardsEl = document.getElementById('gap-cards');
+      cardsEl.innerHTML = '';
+      gaps.forEach((d, idx) => {
+        const bars = '█'.repeat(d.gap) + '░'.repeat(5 - d.gap);
+        const weeks = d.weeks && d.weeks.length
+          ? d.weeks.map(w => `Week ${w}`).join(', ')
+          : '—';
+        const phase = d.phase ? `Phase ${d.phase} — ${PHASE_LABELS[d.phase] || ''}` : '—';
+        const slot = d.slot ? `Project Slot ${d.slot}` : '—';
+        const pClass = PRIORITY_CLASS[Math.min(d.gap, 3)] || 'low';
+        const evidenceLine = d.evidence
+          ? `<p class="gap-evidence">Evidence: ${d.evidence}</p>`
+          : `<p class="gap-evidence gap-missing">No evidence recorded yet</p>`;
+
+        const card = document.createElement('div');
+        card.className = `gap-card priority-${pClass}`;
+        card.innerHTML = `
+          <div class="gap-card-header">
+            <span class="gap-rank">#${String(idx + 1).padStart(2, '0')}</span>
+            <span class="gap-domain">${d.domain}</span>
+            <span class="gap-badge priority-${pClass}">${pClass.toUpperCase()}</span>
+          </div>
+          <div class="gap-bar-row">
+            <span class="gap-bar" title="Gap: ${d.gap}">${bars}</span>
+            <span class="gap-levels">${d.current}/5 → ${d.target}/5 &nbsp; Δ&nbsp;${d.gap}</span>
+          </div>
+          ${d.focus ? `<p class="gap-focus">${d.focus}</p>` : ''}
+          <div class="gap-meta">
+            <span>${phase}</span>
+            <span>${weeks}</span>
+            <span>${slot}</span>
+          </div>
+          ${evidenceLine}
+        `;
+        cardsEl.appendChild(card);
+      });
+
+      // At-target list
+      const atTarget = data.domains.filter(d => d.gap === 0);
+      const atTargetEl = document.getElementById('gap-at-target');
+      const atTargetWrap = document.getElementById('gap-at-target-wrap');
+      if (atTarget.length === 0) {
+        atTargetWrap.style.display = 'none';
+      } else {
+        atTargetWrap.style.display = 'block';
+        atTargetEl.innerHTML = atTarget.map(d =>
+          `<div class="gap-at-target-row"><span class="gap-check">✓</span><span>${d.domain}</span><span class="gap-level-note">${d.current}/5 (target ${d.target}/5)</span></div>`
+        ).join('');
+      }
+    }
+
+    // Delay slightly to give the dynamically-injected gap_report.js time to execute
+    setTimeout(() => {
+      renderGapAnalysis();
+      setGapProfileStatus('Loaded: Current (gap_report.js)');
+    }, 80);
   </script>
 </body>
 </html>
