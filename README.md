@@ -41,6 +41,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow, validation exp
 - A browser-based intro portal (`index.html`) for executives and new readers
 - Templates for executive summary, plan, resource matrix, and onboarding
 - Week-by-week folders with assignment and status placeholders
+- **Skill gap analysis** — a 25-domain Azure CSA assessment template and `scripts/analyze_gaps.py` that maps your gaps to specific weeks and project slots
 
 ## Quick start
 

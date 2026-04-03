@@ -1,5 +1,18 @@
 # Plan Template
 
+## Step 0: Run skill assessment first
+
+Before filling in this plan, complete the skill gap analysis. This ensures your weekly objectives are targeted at your actual knowledge gaps rather than a generic default sequence.
+
+1. Open `docs/SKILL_ASSESSMENT_TEMPLATE.md` and fill in your **Current** and **Target** levels for all 25 domains.
+2. Run `python scripts/analyze_gaps.py` to generate a prioritized gap report.
+3. Record your action plan in `docs/GAP_ANALYSIS_TEMPLATE.md`.
+4. Use the top gaps from the report to inform the **Objective** column in the weekly milestone table below.
+
+If you skip this step, all domains default to the same priority and you may spend time on areas you already know well.
+
+---
+
 ## 1. Program details
 
 - Owner:
