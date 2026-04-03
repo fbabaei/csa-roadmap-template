@@ -43,6 +43,23 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow, validation exp
 5. Update each `week-XX/STATUS.md` as you execute.
 6. Keep evidence links in each week folder and project folder.
 
+## New user guide
+
+If this is your first time using the template, follow this order:
+
+1. Open `index.html` to understand the portal, phases, project slots, and key documents.
+2. Read `QUICKSTART.md` and complete the day-one setup sequence.
+3. Fill `docs/PLAN_TEMPLATE.md` with owner, timeline, pace, and success criteria.
+4. Map your real projects into `projects/INDEX.md` and update the four project slot README files.
+5. Start execution in `week-01/WEEK_ASSIGNMENT.md` and `week-01/STATUS.md`.
+6. Draft leadership visibility in `docs/EXECUTIVE_SUMMARY_TEMPLATE.md` and your first resource map in `docs/RESOURCE_MATRIX_TEMPLATE.md`.
+
+Use this mental model as you work:
+
+- `Portal and overview` for orientation
+- `Templates and project slots` for planning
+- `Week folders` for execution and evidence
+
 ## Day-one guide
 
 Use this file for a practical setup sequence from first open to first weekly execution:
