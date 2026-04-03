@@ -1,12 +1,20 @@
 # Generic CSA Learning Roadmap Template
 
-[![Validate Repository](https://github.com/fbabaei_microsoft/csa-roadmap-template/actions/workflows/validate.yml/badge.svg)](https://github.com/fbabaei_microsoft/csa-roadmap-template/actions/workflows/validate.yml)
-[![Release](https://img.shields.io/github/v/release/fbabaei_microsoft/csa-roadmap-template?display_name=tag)](https://github.com/fbabaei_microsoft/csa-roadmap-template/releases)
-[![Issues](https://img.shields.io/github/issues/fbabaei_microsoft/csa-roadmap-template)](https://github.com/fbabaei_microsoft/csa-roadmap-template/issues)
+[![Validate Repository](https://github.com/fbabaei/csa-roadmap-template/actions/workflows/validate.yml/badge.svg)](https://github.com/fbabaei/csa-roadmap-template/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/fbabaei/csa-roadmap-template?display_name=tag)](https://github.com/fbabaei/csa-roadmap-template/releases)
+[![Issues](https://img.shields.io/github/issues/fbabaei/csa-roadmap-template)](https://github.com/fbabaei/csa-roadmap-template/issues)
 
 ![CSA Roadmap Template banner](assets/csa-roadmap-template-banner.svg)
 
 This project is a reusable version of a Cloud Solution Architect learning and delivery roadmap that anyone can adopt.
+
+## Public version
+
+The public version of this repository is available at:
+
+- `https://github.com/fbabaei/csa-roadmap-template`
+
+If you are reading the private/internal EMU copy, use the public repository when you need a shareable external link.
 
 ## Visual assets
 
