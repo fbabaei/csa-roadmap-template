@@ -45,19 +45,20 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow, validation exp
 
 ## Quick start
 
-1. Open `index.html` for a high-level portal view.
-2. Follow `QUICKSTART.md` for a day-one execution walkthrough.
-3. Fill `docs/PLAN_TEMPLATE.md` with your team or personal target outcomes.
-4. Define your project examples in `projects/INDEX.md`.
-5. Update each `week-XX/STATUS.md` as you execute.
-6. Keep evidence links in each week folder and project folder.
+1. Run `python scripts/start_portal.py` to start the local portal and open it in your browser.
+2. Follow `START_HERE.md` for first-clone onboarding flow.
+3. Follow `QUICKSTART.md` for a day-one execution walkthrough.
+4. Fill `docs/PLAN_TEMPLATE.md` with your team or personal target outcomes.
+5. Define your project examples in `projects/INDEX.md`.
+6. Update each `week-XX/STATUS.md` as you execute.
+7. Keep evidence links in each week folder and project folder.
 
 ## New user guide
 
 If this is your first time using the template, follow this order:
 
-1. Open `index.html` to understand the portal, phases, project slots, and key documents.
-2. Read `QUICKSTART.md` and complete the day-one setup sequence.
+1. Run `python scripts/start_portal.py` and keep the terminal open.
+2. Read `START_HERE.md` then `QUICKSTART.md` and complete the day-one setup sequence.
 3. Fill `docs/PLAN_TEMPLATE.md` with owner, timeline, pace, and success criteria.
 4. Map your real projects into `projects/INDEX.md` and update the four project slot README files.
 5. Start execution in `week-01/WEEK_ASSIGNMENT.md` and `week-01/STATUS.md`.

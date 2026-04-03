@@ -22,7 +22,8 @@ By the end of day one, you should have:
 
 ## Step 1 - Open the template portal (5 min)
 
-- Open `index.html` in this folder.
+- Run `python scripts/start_portal.py` from the repository root.
+- Or open `index.html` in this folder.
 - Review Executive Mode and audience paths.
 - Open these three files from the portal:
   - `docs/PLAN_TEMPLATE.md`
