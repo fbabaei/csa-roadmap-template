@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest an improvement to the template structure, portal, or onboarding flow
+title: "feature: "
+labels:
+  - planning
+body:
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Requested improvement
+      description: Describe the proposed improvement.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem it solves
+      description: What adoption or delivery problem does this solve?
+    validations:
+      required: true
+  - type: checkboxes
+    id: areas
+    attributes:
+      label: Affected areas
+      options:
+        - label: Portal
+        - label: README or docs
+        - label: Week templates
+        - label: Project slot templates
+        - label: Validation workflow
+        - label: Repo automation
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the implementation you want.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes

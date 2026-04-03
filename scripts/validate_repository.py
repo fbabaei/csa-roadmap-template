@@ -24,16 +24,21 @@ def validate_required_files(errors: list[str]) -> None:
         "README.md",
         "QUICKSTART.md",
         "OVERVIEW.md",
+        "SECURITY.md",
         "index.html",
         "portal.css",
         "docs/PLAN_TEMPLATE.md",
         "docs/EXECUTIVE_SUMMARY_TEMPLATE.md",
         "docs/RESOURCE_MATRIX_TEMPLATE.md",
         "docs/ONBOARDING_CHECKLIST.md",
+        "docs/BRANCH_PROTECTION.md",
         "projects/INDEX.md",
         "infra/README.md",
         "assets/csa-roadmap-template-banner.svg",
         "assets/csa-roadmap-template-social-preview.svg",
+        ".vscode/settings.json",
+        ".github/ISSUE_TEMPLATE/bug_report.yml",
+        ".github/ISSUE_TEMPLATE/feature_request.yml",
     ]
     for relative_path in required:
         path = ROOT / relative_path
@@ -80,12 +85,24 @@ def validate_index_links(errors: list[str]) -> None:
             errors.append(f"Broken local link in index.html: {link}")
 
 
+def validate_issue_forms(errors: list[str]) -> None:
+    forms = [
+        ROOT / ".github/ISSUE_TEMPLATE/bug_report.yml",
+        ROOT / ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ]
+    for form in forms:
+        text = form.read_text(encoding="utf-8")
+        if "name:" not in text or "body:" not in text:
+            errors.append(f"Issue form is missing required fields: {form.relative_to(ROOT)}")
+
+
 def main() -> int:
     errors: list[str] = []
     validate_required_files(errors)
     validate_weeks(errors)
     validate_markdown_headings(errors)
     validate_index_links(errors)
+    validate_issue_forms(errors)
 
     if errors:
         print("Validation failed:\n")

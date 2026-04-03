@@ -20,6 +20,11 @@ This repository is a reusable template. Changes should improve clarity, portabil
 - Do not hardcode personal team names, subscriptions, or private environment details.
 - If examples are included, present them as examples rather than defaults.
 
+## Governance references
+
+- Review [SECURITY.md](SECURITY.md) before changing workflows, automation, or sensitive guidance.
+- Review [docs/BRANCH_PROTECTION.md](docs/BRANCH_PROTECTION.md) when configuring repository protections.
+
 ## Pull request checklist
 
 - [ ] Repository validation passes
@@ -36,3 +41,6 @@ Use the starter issue labels consistently:
 - `planning` for roadmap/program definition work
 - `first-week` for week-01 execution tasks
 - `good-first-issue` for approachable starter work
+- `documentation` for docs and guidance updates
+- `portal` for portal UX and navigation changes
+- `validation` for workflow and repository checks

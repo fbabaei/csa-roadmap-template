@@ -1,4 +1,4 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: Day-one quick start
     url: https://github.com/fbabaei_microsoft/csa-roadmap-template/blob/main/QUICKSTART.md
@@ -6,3 +6,9 @@ contact_links:
   - name: Contribution guidance
     url: https://github.com/fbabaei_microsoft/csa-roadmap-template/blob/main/CONTRIBUTING.md
     about: Review contribution expectations and validation requirements.
+  - name: Branch protection guidance
+    url: https://github.com/fbabaei_microsoft/csa-roadmap-template/blob/main/docs/BRANCH_PROTECTION.md
+    about: Apply recommended branch protection settings when adopting the template.
+  - name: Security policy
+    url: https://github.com/fbabaei_microsoft/csa-roadmap-template/blob/main/SECURITY.md
+    about: Review security expectations before reporting issues or changing automation.
