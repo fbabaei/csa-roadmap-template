@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">CSA Roadmap Template Social Preview</title>
+  <desc id="desc">Prepared social preview artwork for the CSA Roadmap Template repository.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#093D3B" />
+      <stop offset="55%" stop-color="#0F766E" />
+      <stop offset="100%" stop-color="#C6772C" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)" />
+  <circle cx="1040" cy="120" r="220" fill="#FFFFFF" fill-opacity="0.06" />
+  <circle cx="120" cy="560" r="250" fill="#FFFFFF" fill-opacity="0.05" />
+  <rect x="72" y="76" width="1136" height="488" rx="34" fill="#FFF9EF" fill-opacity="0.93" />
+  <text x="112" y="146" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#A76324">REUSABLE CLOUD ARCHITECTURE PROGRAM</text>
+  <text x="112" y="236" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="800" fill="#183332">CSA Roadmap Template</text>
+  <text x="112" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#365A56">Day-one onboarding, executive portal, weekly execution packs,</text>
+  <text x="112" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#365A56">resource planning, and reusable project-slot structure.</text>
+  <rect x="112" y="394" width="322" height="72" rx="18" fill="#0A4D4B" />
+  <text x="273" y="438" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">10-week reusable framework</text>
+  <rect x="464" y="394" width="278" height="72" rx="18" fill="#D8792B" />
+  <text x="603" y="438" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">4 adaptable project slots</text>
+  <rect x="772" y="394" width="324" height="72" rx="18" fill="#FFFFFF" />
+  <text x="934" y="438" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#133F3D">Ready for teams or individuals</text>
+</svg>

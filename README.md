@@ -1,6 +1,15 @@
 # Generic CSA Learning Roadmap Template
 
+![CSA Roadmap Template banner](assets/csa-roadmap-template-banner.svg)
+
 This project is a reusable version of a Cloud Solution Architect learning and delivery roadmap that anyone can adopt.
+
+## Visual assets
+
+- Repository banner: `assets/csa-roadmap-template-banner.svg`
+- Prepared social-preview asset: `assets/csa-roadmap-template-social-preview.svg`
+
+If you want the GitHub repository social preview image updated in Settings, upload the prepared social-preview asset manually in the repository social preview settings.
 
 ## Who this is for
 

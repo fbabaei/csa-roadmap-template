@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+  <title id="title">CSA Roadmap Template Banner</title>
+  <desc id="desc">Reusable Cloud Solution Architect roadmap template banner with structured phases and onboarding message.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#083B3A" />
+      <stop offset="52%" stop-color="#0E766E" />
+      <stop offset="100%" stop-color="#C7792B" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8EE" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.82" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="420" fill="url(#bg)" />
+  <circle cx="1080" cy="70" r="180" fill="#FFFFFF" fill-opacity="0.08" />
+  <circle cx="170" cy="390" r="210" fill="#FFFFFF" fill-opacity="0.06" />
+  <rect x="56" y="52" width="1168" height="316" rx="28" fill="url(#panel)" />
+  <text x="96" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4" fill="#9B5A21">REUSABLE ARCHITECTURE ENABLEMENT TEMPLATE</text>
+  <text x="96" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="800" fill="#173331">Cloud Solution Architect</text>
+  <text x="96" y="242" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="800" fill="#173331">Roadmap Template</text>
+  <text x="96" y="286" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#345654">Executive portal, day-one quick start, project slots, weekly execution packs,</text>
+  <text x="96" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#345654">and resource planning for teams or individual contributors.</text>
+  <rect x="834" y="110" width="314" height="54" rx="27" fill="#0B4F4D" />
+  <text x="991" y="144" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">10 Weeks • 4 Project Slots</text>
+  <rect x="834" y="186" width="314" height="54" rx="27" fill="#D87828" />
+  <text x="991" y="220" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Onboarding • Delivery • Governance</text>
+  <rect x="834" y="262" width="314" height="54" rx="27" fill="#FFFFFF" fill-opacity="0.94" />
+  <text x="991" y="296" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#12403E">Use • Adapt • Scale</text>
+</svg>
