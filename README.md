@@ -1,5 +1,9 @@
 # Generic CSA Learning Roadmap Template
 
+[![Validate Repository](https://github.com/fbabaei_microsoft/csa-roadmap-template/actions/workflows/validate.yml/badge.svg)](https://github.com/fbabaei_microsoft/csa-roadmap-template/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/fbabaei_microsoft/csa-roadmap-template?display_name=tag)](https://github.com/fbabaei_microsoft/csa-roadmap-template/releases)
+[![Issues](https://img.shields.io/github/issues/fbabaei_microsoft/csa-roadmap-template)](https://github.com/fbabaei_microsoft/csa-roadmap-template/issues)
+
 ![CSA Roadmap Template banner](assets/csa-roadmap-template-banner.svg)
 
 This project is a reusable version of a Cloud Solution Architect learning and delivery roadmap that anyone can adopt.
@@ -10,6 +14,10 @@ This project is a reusable version of a Cloud Solution Architect learning and de
 - Prepared social-preview asset: `assets/csa-roadmap-template-social-preview.svg`
 
 If you want the GitHub repository social preview image updated in Settings, upload the prepared social-preview asset manually in the repository social preview settings.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow, validation expectations, and issue usage.
 
 ## Who this is for
 

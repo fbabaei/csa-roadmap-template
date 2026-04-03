@@ -56,7 +56,14 @@ def validate_weeks(errors: list[str]) -> None:
 def validate_markdown_headings(errors: list[str]) -> None:
     for markdown_file in ROOT.rglob("*.md"):
         lines = [line.strip() for line in markdown_file.read_text(encoding="utf-8").splitlines()]
-        first_content = next((line for line in lines if line), "")
+        content_lines = lines
+        if content_lines and content_lines[0] == "---":
+            try:
+                frontmatter_end = content_lines.index("---", 1)
+                content_lines = content_lines[frontmatter_end + 1 :]
+            except ValueError:
+                pass
+        first_content = next((line for line in content_lines if line), "")
         if not first_content.startswith("#"):
             errors.append(f"Markdown file missing top heading: {markdown_file.relative_to(ROOT)}")
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Day-one quick start
+    url: https://github.com/fbabaei_microsoft/csa-roadmap-template/blob/main/QUICKSTART.md
+    about: Follow the day-one setup guide before opening onboarding issues.
+  - name: Contribution guidance
+    url: https://github.com/fbabaei_microsoft/csa-roadmap-template/blob/main/CONTRIBUTING.md
+    about: Review contribution expectations and validation requirements.
