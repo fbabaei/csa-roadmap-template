@@ -53,20 +53,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow, validation exp
 6. Update each `week-XX/STATUS.md` as you execute.
 7. Keep evidence links in each week folder and project folder.
 
-## Optional git automation
-
-Use the interactive git activity agent to monitor local changes and confirm commit/push actions:
-
-1. Run `python scripts/git_activity_agent.py`
-2. When changes are detected, confirm whether to commit.
-3. If committed, confirm whether to push to both remotes (`origin` and `personal`).
-
-Optional flags:
-
-- `--interval 30` to change polling interval
-- `--public-remote origin` to override the public remote name
-- `--private-remote personal` to override the private remote name
-
 ## New user guide
 
 If this is your first time using the template, follow this order:
