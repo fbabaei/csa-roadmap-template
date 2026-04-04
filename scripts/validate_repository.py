@@ -6,6 +6,13 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parent.parent
+IGNORED_MARKDOWN_SCAN_DIRS = {
+    ".venv",
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+}
 
 
 class LinkCollector(HTMLParser):
@@ -63,6 +70,9 @@ def validate_weeks(errors: list[str]) -> None:
 
 def validate_markdown_headings(errors: list[str]) -> None:
     for markdown_file in ROOT.rglob("*.md"):
+        relative_parts = markdown_file.relative_to(ROOT).parts
+        if any(part in IGNORED_MARKDOWN_SCAN_DIRS for part in relative_parts):
+            continue
         lines = [line.strip() for line in markdown_file.read_text(encoding="utf-8").splitlines()]
         content_lines = lines
         if content_lines and content_lines[0] == "---":
