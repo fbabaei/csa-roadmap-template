@@ -17,18 +17,24 @@ By the end of day one, you should have:
 - Access to this repository
 - A text editor (VS Code recommended)
 - 60 to 90 minutes of focused time
+- Run commands from the repository root folder
 
 ## Step-by-step
 
 ## Step 1 - Open the template portal (5 min)
 
 - Run `python scripts/start_portal.py` from the repository root.
+- If needed, run `powershell -ExecutionPolicy Bypass -File scripts/start_portal_from_anywhere.ps1`.
 - Or open `index.html` in this folder.
 - Review Executive Mode and audience paths.
 - Open these three files from the portal:
   - `docs/PLAN_TEMPLATE.md`
   - `projects/INDEX.md`
   - `docs/ONBOARDING_CHECKLIST.md`
+
+If you see a script-not-found error, switch to repo root first and rerun the command.
+
+Use `docs/WEEK_01_COMPLETED_EXAMPLE.md` as a quality bar for what a completed first week should look like.
 
 ## Step 2 - Define your program metadata (10 min)
 
@@ -98,3 +104,8 @@ You are done for day one when:
 - Collect first evidence links
 - Update week-01 status and blockers
 - Prepare week-02 assignment before starting implementation
+
+## Gap analysis profile note
+
+- `gap_report.js` is the current exported profile from your own filled assessment.
+- `gap_report_junior_csa.js`, `gap_report_mid_level_architect.js`, and `gap_report_team_baseline.js` are sample profiles for comparison.

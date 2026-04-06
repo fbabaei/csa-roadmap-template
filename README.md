@@ -45,13 +45,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow, validation exp
 
 ## Quick start
 
+Run commands from the repository root folder so relative paths resolve correctly.
+
 1. Run `python scripts/start_portal.py` to start the local portal and open it in your browser.
-2. Follow `START_HERE.md` for first-clone onboarding flow.
-3. Follow `QUICKSTART.md` for a day-one execution walkthrough.
-4. Fill `docs/PLAN_TEMPLATE.md` with your team or personal target outcomes.
-5. Define your project examples in `projects/INDEX.md`.
-6. Update each `week-XX/STATUS.md` as you execute.
-7. Keep evidence links in each week folder and project folder.
+2. If your shell is not in repo root, run `powershell -ExecutionPolicy Bypass -File scripts/start_portal_from_anywhere.ps1`.
+3. Follow `START_HERE.md` for first-clone onboarding flow.
+4. Follow `QUICKSTART.md` for a day-one execution walkthrough.
+5. Fill `docs/PLAN_TEMPLATE.md` with your team or personal target outcomes.
+6. Define your project examples in `projects/INDEX.md`.
+7. Update each `week-XX/STATUS.md` as you execute.
+8. Keep evidence links in each week folder and project folder.
+
+## Internal quality bar example
+
+For internal rollout quality consistency, use this completed sample as a reference:
+
+- `docs/WEEK_01_COMPLETED_EXAMPLE.md`
 
 ## New user guide
 
@@ -63,6 +72,16 @@ If this is your first time using the template, follow this order:
 4. Map your real projects into `projects/INDEX.md` and update the four project slot README files.
 5. Start execution in `week-01/WEEK_ASSIGNMENT.md` and `week-01/STATUS.md`.
 6. Draft leadership visibility in `docs/EXECUTIVE_SUMMARY_TEMPLATE.md` and your first resource map in `docs/RESOURCE_MATRIX_TEMPLATE.md`.
+
+## Internal release notes
+
+- CI in this template supports two internal modes:
+	- GitHub-hosted runner for non-EMU/public owner forks.
+	- Self-hosted Linux runner for the `fbabaei_microsoft` owner path.
+- If validation fails immediately in the internal repo, confirm a self-hosted runner is online and assigned.
+- Gap Analysis profiles in the portal include both real and sample datasets:
+	- `Current (gap_report.js)` is your exported assessment data.
+	- `Junior CSA`, `Mid-Level Architect`, and `Team Baseline` are sample profiles for demo/baseline comparison.
 
 Use this mental model as you work:
 

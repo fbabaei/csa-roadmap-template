@@ -13,6 +13,12 @@ This repository is a reusable template. Changes should improve clarity, portabil
    - `python scripts/validate_repository.py`
 5. Update documentation when structure, onboarding, or workflow expectations change.
 
+## Internal CI behavior
+
+- In the internal `fbabaei_microsoft` repository path, validation runs on a self-hosted Linux runner.
+- In non-internal owner paths (for example public forks), validation runs on GitHub-hosted `ubuntu-latest`.
+- If an internal validation run fails before steps start, check self-hosted runner availability first.
+
 ## Content rules
 
 - Keep project slots generic and reusable.
